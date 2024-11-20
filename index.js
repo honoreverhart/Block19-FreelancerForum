@@ -44,7 +44,7 @@ function init() {
    */
   /**
    * 👉 STEP 2:
-   *    Create a new h1 element that says "Freelancer"
+   *    Create a new h1 element that says "Freelancer Forum"
    *    Add the new h1 to the root div
    */
   /**
