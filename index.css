@@ -1,6 +1,6 @@
-body {
+/* body {
   text-align: center;
-  background-color: black;
+  background-color: white;
   color: #aadeee;
 }
 
@@ -19,6 +19,30 @@ th {
   text-transform: capitalize;
 }
 
+tr:nth-child(odd) {
+  background-color: #bbbbbb;
+  color: black;
+} */
+
+
+body {
+  text-align: center;
+  background-color: black;
+  color: #aadeee;
+}
+table {
+  width: 70%;
+  margin-left: 20%;
+
+}
+tbody td,
+th {
+  text-align: justify;
+}
+th {
+  font-size: large;
+  text-transform: capitalize;
+}
 tr:nth-child(odd) {
   background-color: #bbbbbb;
   color: black;

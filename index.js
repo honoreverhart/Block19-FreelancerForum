@@ -38,39 +38,119 @@ const occupations = [
   "Data Scientist",
 ];
 
+//Headers of the table
 function init() {
-  /**
-   * 👉 STEP 1: Grab the div with the id of "root"
-   */
-  /**
-   * 👉 STEP 2:
-   *    Create a new h1 element that says "Freelancer Forum"
-   *    Add the new h1 to the root div
-   */
-  /**
-   * 👉 STEP 3:
-   *    Create a table to hold our Freelancers in
-   */
-  /**
-   * 👉 STEP 5:
-   *    Call the function you created in step 4
-   */
+ 
+    const root = document.getElementById("root");
+  
+    const heading = document.createElement("h1");
+    heading.textContent = "Freelancer Forum";
+    root.appendChild(heading)
+
+    const h2 = document.createElement("h2");
+    h2.textContent = "The average starting price is $30"
+    root.appendChild(h2)
+
+    const availableh1 = document.createElement("h1");
+    availableh1.textContent = "Available Freelancers"
+    root.appendChild(availableh1)
+
+  
 }
 
-/**
- * 👉 STEP 4:
- *    Create a function to render the Freelancers in our Freelancers array
- */
+//Creating the name, occupation, and price AND displays the freelancer object in table form
+function freeRender(){
 
-/**
- * 👉 STEP 6:
- *    Create a function to add a new Freelancer to the Freelancers array
- */
+  const tbody = document.createElement("tbody")
+  root.appendChild(tbody)
 
-/**
- * 👉 STEP 7:
- *    Add an interval to add a new Freelancer every second
- */
+ 
 
-//call init function
-init();
+  const nameColumn1 = document.createElement("th")
+  nameColumn1.textContent = "Name" 
+  tbody.appendChild(nameColumn1)
+
+  const jobColumn2 = document.createElement("th")
+  jobColumn2.textContent = "Occupation" 
+  tbody.appendChild(jobColumn2)
+
+  const priceColumn3 = document.createElement("th")
+  priceColumn3.textContent = "Price" 
+  tbody.appendChild(priceColumn3)
+
+  freelancers.forEach((person) => {
+
+    const freeRow = document.createElement("tr")
+    tbody.appendChild(freeRow)
+
+    const nameCell = document.createElement("td")
+    nameCell.textContent = person.name
+    freeRow.appendChild(nameCell)
+
+    const jobCell = document.createElement("td")
+    jobCell.textContent = person.occupation
+    freeRow.appendChild(jobCell)
+
+    const priceCell = document.createElement("td")
+    priceCell.textContent = person.price
+    freeRow.appendChild(priceCell)
+
+    tbody.append(freeRow)
+  })
+}
+
+//adding a new freelancer to the table everytime the page is refreshed
+function addNewFreelancer(){
+  
+  const addPrice = Math.floor(Math.random() * 100)
+  const addName = names[Math.floor(Math.random() * names.length)];
+  const addJob = occupations[Math.floor(Math.random() * names.length)];
+  freelancers.push({ name: addName, occupation: addJob, price: addPrice });
+  
+  freeRender()
+  
+
+}
+
+
+
+init()
+
+//adding a freelancer every second to the table
+//ERROR: its just repeating the table over and over... not sure how to fix it
+const addFreelancerIntervalId = setInterval(() => {
+  addNewFreelancer();
+
+  
+  if (freelancers.length >= maxLength) {
+    clearInterval(addFreelancerIntervalId);
+  }
+}, 1000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
